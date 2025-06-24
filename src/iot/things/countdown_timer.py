@@ -21,7 +21,7 @@ class CountdownTimer(Thing):
         # 使用锁来保护对 _timers 和 _next_timer_id 的访问，确保线程安全
         self._lock = threading.Lock()
 
-        print("[虚拟设备] 倒计时器设备初始化完成")
+        logger.info("[虚拟设备] 倒计时器设备初始化完成")
 
         # 定义方法 - 使用 Parameter 对象
         self.add_method(

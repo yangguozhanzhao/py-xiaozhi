@@ -745,7 +745,7 @@ class DeviceFingerprint:
 
         serial_number, source = self.generate_serial_number()
         hmac_key = self.generate_hardware_hash()
-        print(f"生成序列号: {serial_number} (来源: {source}) hmac_key: {hmac_key}")
+        logger.info(f"生成序列号: {serial_number} (来源: {source}) hmac_key: {hmac_key}")
         if not self.efuse_file.exists():
             # 创建默认efuse数据
             default_data = {
@@ -762,7 +762,6 @@ class DeviceFingerprint:
                 json.dump(default_data, f, indent=2, ensure_ascii=False)
 
             logger.info(f"已创建efuse配置文件: {self.efuse_file}")
-            print("新设备：已创建efuse配置文件")
         else:
             logger.info(f"efuse配置文件已存在: {self.efuse_file}")
             # 验证文件内容是否完整

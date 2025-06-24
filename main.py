@@ -3,11 +3,14 @@ import io
 import signal
 import sys
 
-from src.application import Application
 from src.utils.logging_config import get_logger, setup_logging
 
+# 日志
+setup_logging()
 logger = get_logger(__name__)
 # 配置日志
+
+from src.application import Application
 
 
 def parse_args():
@@ -54,8 +57,7 @@ def main():
     # 解析命令行参数
     args = parse_args()
     try:
-        # 日志
-        setup_logging()
+        
         # 创建并运行应用程序
         app = Application.get_instance()
 

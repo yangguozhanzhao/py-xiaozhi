@@ -436,12 +436,10 @@ class ConfigManager:
             # 解析JSON数据
             response_data = response.json()
             # 调试信息：打印完整的OTA响应
-            self.logger.debug(
+            self.logger.info(
                 f"OTA服务器返回数据: "
                 f"{json.dumps(response_data, indent=4, ensure_ascii=False)}"
             )
-
-            print(json.dumps(response_data, indent=4, ensure_ascii=False))
 
             return response_data
 
